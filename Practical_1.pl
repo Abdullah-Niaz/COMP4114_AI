@@ -1,0 +1,7 @@
+batsman(williamson).
+bowler(boult).
+keeper(marsh).
+cricketer(X):-batsman(X);bowler(X);keeper(X).
+
+
+
