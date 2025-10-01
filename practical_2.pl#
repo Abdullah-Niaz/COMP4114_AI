@@ -1,0 +1,42 @@
+male(abdullah).
+male(yasir).
+male(waqar).
+male(niaz).
+male(sajid).
+
+female(m_female).
+female(s_1_female_m).
+female(s_2_female).
+female(hadia).
+female(urwa).
+female(irsa).
+
+parent(niaz,abdullah).
+parent(niaz,yasir).
+parent(niaz,waqar).
+parent(niaz,s_1_female_m).
+parent(niaz,s_2_female).
+parent(m_female,abdullah).
+parent(m_female,yasir).
+parent(m_female,waqar).
+parent(m_female,s_1_female_m).
+parent(m_female,s_2_female).
+
+parent(sajid,hadia).
+parent(sajid,urwa).
+parent(sajid,irsa).
+parent(hadia, s_1_female_m).
+parent(urwa, s_1_female_m).
+parent(irsa, s_1_female_m).
+
+
+
+
+
+mother(X,Y):-parent(X,Y),female(X).
+father(X,Y):-parent(X,Y),male(X).
+sister(X,Y):-parent(Z,X),parent(Z,Y),female(X),X\==Y.
+brother(X,Y):-parent(Z,X),parent(Z,Y),male(X),X\==Y.
+grandfather(X,Z):-father(X,Y),parent(Y,Z).
+grandmother(X,Z):-mother(X,Y),parent(Y,Z).
+siblings(X,Y):-(brother(X,Y);sister(X,Y)),X\==Y.
