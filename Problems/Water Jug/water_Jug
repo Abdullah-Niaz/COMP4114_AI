@@ -1,0 +1,105 @@
+# Water jug problem
+•Statement: we are given three water jugs (A, B, C) with the capacities 8, 5, 3 liters respectively. All these jugs do not have any other measuring mark on it. Initially these jugs have water 6, 2, 0 liters, how can you get water in these three jugs 1, 4, 3 liter respectively?
+
+
+## 🧩 Problem Setup
+
+We have **three jugs**:
+
+| Jug | Capacity | Initial Water | Goal Water |
+| --- | -------- | ------------- | ---------- |
+| A   | 8 liters | 6 liters      | 1 liter    |
+| B   | 5 liters | 2 liters      | 4 liters   |
+| C   | 3 liters | 0 liters      | 3 liters   |
+
+So at the start:
+
+```
+A = 6, B = 2, C = 0
+```
+
+We want to end up with:
+
+```
+A = 1, B = 4, C = 3
+```
+
+---
+
+## 🎯 What You’re Allowed to Do
+
+You can only:
+
+1. **Pour water** from one jug into another.
+2. **Stop pouring** when either:
+
+   * The jug you’re pouring *into* is **full**, or
+   * The jug you’re pouring *from* is **empty**.
+
+You **cannot measure partially** — only fill/empty through pouring.
+
+---
+
+## 🧠 Step-by-Step Explanation
+
+Let’s figure out how to go from `(6, 2, 0)` → `(1, 4, 3)`.
+
+---
+
+### 🪣 Step 1: Pour from B → C
+
+* B has 2 L, C has 0 L (and can hold 3 L).
+* Pour all 2 liters from B into C.
+
+Now:
+
+```
+A = 6, B = 0, C = 2
+```
+
+---
+
+### 🪣 Step 2: Pour from A → B
+
+* A has 6 L, B can hold up to 5 L.
+* Pour 5 liters from A into B (until B is full).
+
+Now:
+
+```
+A = 1, B = 5, C = 2
+```
+
+---
+
+### 🪣 Step 3: Pour from B → C
+
+* B has 5 L, C has 2 L (capacity 3 L, so only 1 more can fit).
+* Pour 1 liter from B into C.
+
+Now:
+
+```
+A = 1, B = 4, C = 3
+```
+
+✅ That’s our goal state!
+
+---
+
+## ✅ Final Answer
+
+| Step    | Action     | (A, B, C) |
+| ------- | ---------- | --------- |
+| Start   | —          | (6, 2, 0) |
+| 1       | Pour B → C | (6, 0, 2) |
+| 2       | Pour A → B | (1, 5, 2) |
+| 3       | Pour B → C | (1, 4, 3) |
+| 🎯 Goal | —          | (1, 4, 3) |
+
+---
+
+## 🧩 In Simple Words
+
+You’re just **transferring water between jugs** until you reach the required distribution.
+Think of it as balancing water between containers without spilling or guessing — just pouring fully or emptying.
